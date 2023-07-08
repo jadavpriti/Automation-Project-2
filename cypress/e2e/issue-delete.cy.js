@@ -4,7 +4,8 @@ beforeEach(() => {
         cy.visit(url + '/board/issues');
         cy.contains('This is an issue of type: Task.').click();
       });
-    });
+});
+describe('Issue delete', () => {
 it('should delete an issue', () => {
     //assert that issue details view is visible
     cy.get('[data-testid="list-issue"]').should('be.visible');
@@ -28,4 +29,5 @@ it('should start deletation of an issue and then cancel it', () => {
     //Assert that issue is available on jira board
     cy.get('button i[data-testid="icon:close"]').click();
     cy.get('[data-testid="board-list:backlog"]').contains('This is an issue of type: Task.').should('exist');
+});
 });
