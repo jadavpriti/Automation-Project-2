@@ -16,10 +16,16 @@ describe('Issue delete', () => {
   const issueTitle = 'This is an issue of type: Task.';
 
   it('Should delete issue successfully', () => {
-    //add steps to delete issue
+    //Click on delete button
+    IssueModal.clickDeleteButton(issueTitle);
+    //Click on Delete button on confirmation pop-up
+    IssueModal.confirmDeletion();
   });
 
   it('Should cancel deletion process successfully', () => {
-    //add steps to start deletion proces but cancel it
+    //Click on delete button
+    IssueModal.clickDeleteButton(issueTitle);
+    //Click on Cancel button on confirmation pop-up
+    IssueModal.cancelDeletion(issueTitle);
   });
 });
