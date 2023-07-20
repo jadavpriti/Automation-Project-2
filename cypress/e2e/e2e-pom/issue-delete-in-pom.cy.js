@@ -20,6 +20,8 @@ describe('Issue delete', () => {
     IssueModal.clickDeleteButton(issueTitle);
     //Click on Delete button on confirmation pop-up
     IssueModal.confirmDeletion();
+    //Check if issue is not visible on board
+    IssueModal.ensureIssueIsNotVisibleOnBoard(issueTitle);
   });
 
   it('Should cancel deletion process successfully', () => {
@@ -27,5 +29,8 @@ describe('Issue delete', () => {
     IssueModal.clickDeleteButton(issueTitle);
     //Click on Cancel button on confirmation pop-up
     IssueModal.cancelDeletion(issueTitle);
+    //Close the detail view and Check if issue is visible on board
+    IssueModal.closeDetailModal();
+    IssueModal.ensureIssueIsVisibleOnBoard(issueTitle);
   });
 });
