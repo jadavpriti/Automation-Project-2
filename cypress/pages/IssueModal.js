@@ -99,7 +99,7 @@ class IssueModal {
             cy.contains(this.cancelDeletionButtonName).click();
         });
         cy.get(this.confirmationPopup).should('not.exist');
-        
+        cy.get(this.issueDetailModal).should('be.visible');
     }
 
     closeDetailModal(){
