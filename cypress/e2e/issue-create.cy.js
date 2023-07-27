@@ -67,6 +67,7 @@ describe('Issue create', () => {
       cy.get('[data-testid="form-field:title"]').should('contain', 'This field is required');
     });
   });
+<<<<<<< HEAD
 
   it('Should create a new issue with title "BUG" and validate it successfully', () => {
     //System finds modal for creating issue and does next steps inside of it
@@ -162,3 +163,6 @@ it('Should create a new issue with random data generator and validate it success
 });
 });
 });
+=======
+});
+>>>>>>> 00dfed8746cacccb668c2b53aad51d166902bfb6
