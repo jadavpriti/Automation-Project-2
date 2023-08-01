@@ -27,6 +27,10 @@ describe('Issue comments creating, editing and deleting', () => {
         });
     });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> aea6f63b6ded62d77c99c30896aada45521ff35e
     it('Should edit a comment successfully', () => {
         const previousComment = 'An old silent pond...';
         const comment = 'TEST_COMMENT_EDITED';
@@ -68,7 +72,11 @@ describe('Issue comments creating, editing and deleting', () => {
             .find('[data-testid="issue-comment"]')
             .should('not.exist');
     });
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> aea6f63b6ded62d77c99c30896aada45521ff35e
     it('Should create,edit and delete comment successfully', () => {
         const comment = 'TEST_COMMENT';
         const comment_edited = 'TEST_COMMENT_EDITED';
@@ -94,9 +102,15 @@ describe('Issue comments creating, editing and deleting', () => {
             cy.contains('Delete').click();
         });
 
+<<<<<<< HEAD
         cy.get('[data-testid="modal:confirm"]').contains('button', 'Delete comment')
             .click().should('not.exist');
         getIssueDetailsModal().contains(comment_edited).should('not.exist');
+=======
+            cy.get('[data-testid="modal:confirm"]').contains('button', 'Delete comment')
+                .click().should('not.exist');
+            getIssueDetailsModal().contains(comment_edited).should('not.exist');
+>>>>>>> aea6f63b6ded62d77c99c30896aada45521ff35e
 
     });
 });

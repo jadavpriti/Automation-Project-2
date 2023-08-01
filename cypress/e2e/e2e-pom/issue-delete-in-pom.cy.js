@@ -28,8 +28,13 @@ describe('Issue delete', () => {
     //Click on delete button
     IssueModal.clickDeleteButton();
     //Click on Cancel button on confirmation pop-up
+<<<<<<< HEAD
     IssueModal.cancelDeletion();
     //Close the detailview and Check if issue is visible on board
+=======
+    IssueModal.cancelDeletion(issueTitle);
+    //Close the detail view and Check if issue is visible on board
+>>>>>>> aea6f63b6ded62d77c99c30896aada45521ff35e
     IssueModal.closeDetailModal();
     IssueModal.ensureIssueIsVisibleOnBoard(issueTitle);
   });
