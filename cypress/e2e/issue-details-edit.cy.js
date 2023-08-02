@@ -61,5 +61,35 @@ describe('Issue details editing', () => {
     });
   });
 
+  it('should check priority dropdown', () => { 
+    const expectedLength = 5;
+    let priorityOptions = [];
+
+    cy.get('[data-testid="select:priority"]').then(($priorityDropdown) => {
+      const selectedPriority = $priorityDropdown.text().trim();
+      priorityOptions.push(selectedPriority);
+
+      cy.get('[data-testid="select:priority"]').click();
+      cy.get('[data-testid^="select-option"]').each(($option) => {
+        const optionText = $option.text().trim();
+        priorityOptions.push(optionText);
+        cy.log(`Added value: ${optionText}, Length of the array: ${priorityOptions.length}`);
+      }).then(() => {
+        cy.contains('Priority').click();
+        expect(priorityOptions.length).to.equal(expectedLength);
+      });
+    });
+
+    it('Should validates reporter matching defined regular expression', () => {
+      const reporterName = "Baby Yoda"
+      cy.get('[data-testid="avatar:Baby Yoda"]').invoke('text').then((reporterName) => {
+        const regex = /^[A-Za-z\s]*$/
+        expect(regex.test(reporterName.trim())).to.be.true;
+      });
+    });
+
+  });
+  
   const getIssueDetailsModal = () => cy.get('[data-testid="modal:issue-details"]');
 });
+

@@ -161,6 +161,25 @@ it('Should create a new issue with random data generator and validate it success
   cy.get('i[data-testid="icon:task"]').should('be.visible');  
 });
 });
+  
+  it.only('should remove unnecessary spaces from issue title', () => {
+    const title = ' Hello  world '
+    cy.get('.ql-editor').type('This is string test');
+    cy.get('input[name="title"]').clear().type(title);
+    cy.get('[data-testid="select:reporterId"]').click();
+    cy.get('[data-testid="select-option:Baby Yoda"]').click();
+    cy.get('[data-testid="select:priority"]').click();
+    cy.get('[data-testid="select-option:Low"]').click();
+    cy.get('button[type="submit"]').click();
+    cy.get('[data-testid="modal:issue-create"]').should('not.exist')
+    cy.contains('Issue has been successfully created.').should('be.visible');
+    cy.reload();
+    cy.contains('Issue has been successfully created.').should('not.exist');
+    cy.get('[data-testid="board-list:backlog').first().invoke('text').then((title) => {
+      const trimmedTitle = title.trim();
+      cy.get('[data-testid="list-issue"]').should('have.length', '9').first().find('p');
+    });
+  });
 });
 
 
